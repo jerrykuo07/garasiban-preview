@@ -7,34 +7,203 @@
 const NO_IMAGE = "https://placehold.co/400x300?text=No+Image";
 
 // ============================================================
-// DATA KONTAK SITUS — dipakai footer (semua halaman) & tombol chat WA
+// DATA PRODUK MOTORCYCLE TIRES — dimuat dari data CSV GarasiBan
+// Harga menggunakan Harga Jual PPN (harga jual termasuk PPN)
+// Setiap produk memiliki varian ukuran (width/ratio-rim)
 // ============================================================
-const SITE_CONTACT = {
-  phoneDisplay: "+62 819-0802-8911",   // teks nomor yang tampil di footer
-  phoneHref: "+6281908028911",         // link tel: (format internasional, tanpa spasi)
-  email: "info@garasiban.com",         // link mailto:
-  address: "Jl. Otomotif No. 88, Jakarta, Indonesia",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Garasi+Ban+Indonesia+Jl.+Otomotif+No.+88+Jakarta",
-  whatsapp: "6281908028911"            // nomor WA semua tombol chat (format 62..., tanpa +)
-};
 
 const PRODUCTS = [
-  // CONTOH PRODUK MULTI-VARIAN: 1 produk, beberapa ukuran, harga bisa berbeda
-  // per ukuran. Harga/SKU pindah ke dalam variants; width/rim per varian otomatis
-  // ikut mengisi dropdown filter Lebar & Ring. Lihat PANDUAN-EDIT-DATA.md.
-  { id: 1, name: "Zenios Ionity TUBELESS - Ring 13", brand: "Zenios", category: "Ban Motor Matic", rim: 13, sku: "-", variant: "-", weight: "3.50 kg", images: ["assets/products/Zenios Ionity.jpg"], keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
+  // ZENEOS IONITY — produk utama, banyak varian ukuran
+  // Data dari baris 295-300
+  {
+    id: 1,
+    name: "Zeneos Ionity TUBELESS - Ring 12",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 12,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 100/90-12, 110/90-12, 110/70-12, 130/80-12",
     variants: [
-      { label: "110/70-13",    width: 110, price: "Rp 50.000", priceValue: 50000, sku: "-" },
-      { label: "130/70-13", width: 130, price: "Rp 65.000", priceValue: 65000, sku: "-" },
-      { label: "140/80-13", width: 130, price: "Rp 65.000", priceValue: 65000, sku: "-" }
-    ] },
-  { id: 2, name: "Zenios Milano TUBELESS - Ring 13", brand: "Zenios", category: "Ban Motor Matic", rim: 13, sku: "-", variant: "-", weight: "3.50 kg", images: ["assets/products/Zenios Ionity.jpg"], keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
+      { label: "100/90-12",    width: 100, price: "Rp 267.510", priceValue: 267510, sku: "-" },
+      { label: "110/90-12",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "110/70-12",    width: 110, price: "Rp 313.020", priceValue: 313020, sku: "-" },
+      { label: "130/80-12",    width: 130, price: "Rp 375.180", priceValue: 375180, sku: "-" }
+    ]
+  },
+  {
+    id: 2,
+    name: "Zeneos Ionity TUBELESS - Ring 13",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
     variants: [
-      { label: "110/70-13",    width: 110, price: "Rp 50.000", priceValue: 50000, sku: "-" },
-      { label: "130/70-13", width: 130, price: "Rp 65.000", priceValue: 65000, sku: "-" },
-      { label: "140/80-13", width: 130, price: "Rp 65.000", priceValue: 65000, sku: "-" }
-    ] },
-  ];
+      { label: "110/70-13",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "130/70-13",    width: 130, price: "Rp 406.260", priceValue: 406260, sku: "-" }
+    ]
+  },
+  {
+    id: 3,
+    name: "Zeneos Ionity TUBELESS - Ring 13 (size 110/70 & 130/70)",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
+    variants: [
+      { label: "110/70-13",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "130/70-13",    width: 130, price: "Rp 406.260", priceValue: 406260, sku: "-" }
+    ]
+  },
+  // ZENEOS MILANO — produk kedua
+  // Data dari baris 301-308
+  {
+    id: 4,
+    name: "Zeneos Milano TUBELESS - Ring 12",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 12,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-12, 130/70-12, 120/70-13",
+    variants: [
+      { label: "110/70-12",    width: 110, price: "Rp 313.020", priceValue: 313020, sku: "-" },
+      { label: "130/70-12",    width: 130, price: "Rp 344.100", priceValue: 344100, sku: "-" },
+      { label: "120/70-13",    width: 120, price: "Rp 384.060", priceValue: 384060, sku: "-" }
+    ]
+  },
+  {
+    id: 5,
+    name: "Zeneos Milano TUBELESS - Ring 13",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 120/70-13, 130/70-13",
+    variants: [
+      { label: "110/70-13",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "120/70-13",    width: 120, price: "Rp 384.060", priceValue: 384060, sku: "-" },
+      { label: "130/70-13",    width: 130, price: "Rp 406.260", priceValue: 406260, sku: "-" }
+    ]
+  },
+  {
+    id: 6,
+    name: "Zeneos Milano TUBELESS - Ring 13 (size 140/70)",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 140/70-13",
+    variants: [
+      { label: "140/70-13",    width: 140, price: "Rp 468.420", priceValue: 468420, sku: "-" }
+    ]
+  },
+  // ZENEOS STARIZE — produk ketiga
+  // Data dari baris 309-312
+  {
+    id: 7,
+    name: "Zeneos Starize TUBELESS - Ring 13",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
+    variants: [
+      { label: "110/70-13",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "130/70-13",    width: 130, price: "Rp 406.260", priceValue: 406260, sku: "-" }
+    ]
+  },
+  {
+    id: 8,
+    name: "Zeneos Starize TUBELESS - Ring 14",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 14,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 80/90-14, 90/90-14",
+    variants: [
+      { label: "80/90-14",     width: 80, price: "Rp 231.990", priceValue: 231990, sku: "-" },
+      { label: "90/90-14",     width: 90, price: "Rp 267.510", priceValue: 267510, sku: "-" }
+    ]
+  },
+  // ZENEOS ZN62 — produk keempat
+  // Data dari baris 313-330
+  {
+    id: 9,
+    name: "Zeneos ZN62 TUBELESS - Ring 13",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 13,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 110/70-13, 130/70-13",
+    variants: [
+      { label: "110/70-13",    width: 110, price: "Rp 321.900", priceValue: 321900, sku: "-" },
+      { label: "130/70-13",    width: 130, price: "Rp 406.260", priceValue: 406260, sku: "-" }
+    ]
+  },
+  {
+    id: 10,
+    name: "Zeneos ZN62 TUBELESS - Ring 14",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 14,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 80/80-14, 90/80-14, 100/80-14",
+    variants: [
+      { label: "80/80-14",     width: 80, price: "Rp 218.670", priceValue: 218670, sku: "-" },
+      { label: "90/80-14",     width: 90, price: "Rp 263.070", priceValue: 263070, sku: "-" },
+      { label: "100/80-14",    width: 100, price: "Rp 313.020", priceValue: 313020, sku: "-" }
+    ]
+  },
+  {
+    id: 11,
+    name: "Zeneos ZN62 TUBELESS - Ring 17",
+    brand: "Zeneos",
+    category: "Ban Motor Matic",
+    rim: 17,
+    sku: "-",
+    variant: "-",
+    weight: "3.50 kg",
+    images: ["assets/products/Zenios Ionity.jpg"],
+    keywords: "ban matic, ban matic besar, ban depan, ban belakang, ban beat, ban mio, ban vario, ban nmax, ban pcx, ban tubeless, 70/90-17, 80/90-17, 90/80-17, 100/70-17",
+    variants: [
+      { label: "70/90-17",     width: 70, price: "Rp 231.990", priceValue: 231990, sku: "-" },
+      { label: "80/90-17",     width: 80, price: "Rp 258.630", priceValue: 258630, sku: "-" },
+      { label: "90/80-17",     width: 90, price: "Rp 326.340", priceValue: 326340, sku: "-" },
+      { label: "100/70-17",    width: 100, price: "Rp 388.500", priceValue: 388500, sku: "-" }
+    ]
+  }
+];
 
 // Kategori: id = nilai ?category= di URL (dinomori urut sesuai urutan tampil), parent = kategori induk
 const CATEGORIES = [
@@ -102,7 +271,7 @@ const CATEGORY_ORDER = [
 //   1. Buat file HTML artikel di folder /berita/ (copy salah satu artikel lama).
 //   2. Tambahkan entri baru di daftar NEWS_POSTS di bawah ini.
 //   3. Selesai — daftar berita & seksi "Baca Juga" di semua artikel terisi otomatis.
-//
+////
 // PENGATURAN SEKSI "BACA JUGA" (tampil di bawah setiap artikel):
 //   jumlahTampil : berapa kartu berita lain yang tampil (mis. 3).
 //   pilihan      : "random"   = acak setiap halaman dibuka (tetap sejumlah jumlahTampil)
@@ -128,6 +297,9 @@ const SIZE_EXTRA = {
   rims: []        // contoh isi: [20, 21] → Ring 20 & 21 selalu tampil di dropdown
 };
 
+// ============================================================
+// DATA BERITA — satu sumber untuk daftar berita & seksi "Baca Juga"
+// ============================================================
 const NEWS_POSTS = [
   {
     slug: "mengenal-kode-ukuran-ban-motor-dan-cara-membacanya-dengan-benar",
@@ -198,7 +370,6 @@ const WORKSHOPS = [
     address: "Jalan KH Noer Ali Blok AA, Jl. Taman Wisma Asri II No.38 No 7, RT. 005, RW. 026, Kel. Teluk Pucung, Kec. Bekasi Utara, Kota Bekasi, Jawa Barat 17121",
     hours: "08:00 - 17:00 WIB",
     gps: "-6.20106782, 107.02863728",
-    mapsUrl: "https://maps.app.goo.gl/5u18CjWHJ2emHYfm7",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=600"
   },
   {
