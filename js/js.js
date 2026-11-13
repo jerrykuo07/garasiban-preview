@@ -8,7 +8,7 @@ const PER_PAGE = 16; // infinity scroll: jumlah produk awal, ditambah 16 tiap sc
 const BASE = window.location.pathname.includes("/") && /\/berita\//.test(window.location.pathname) ? "../" : "";
 
 // Nomor WA untuk tombol chat & form kontak — sumber utamanya SITE_CONTACT.whatsapp di js/data.js
-const WA_NUMBER = (typeof SITE_CONTACT !== "undefined" && SITE_CONTACT.whatsapp) ? SITE_CONTACT.whatsapp : "6285111309169";
+const WA_NUMBER = (typeof SITE_CONTACT !== "undefined" && SITE_CONTACT.whatsapp) ? SITE_CONTACT.whatsapp : "6281908028911";
 
 // ---------- MULTI-VARIAN PRODUK (harga berbeda per ukuran) ----------
 // Produk bisa punya daftar `variants` (label/width/price/priceValue/sku per varian).
@@ -141,7 +141,7 @@ function renderNewsList() {
       <div>
         <div class="h-48 overflow-hidden relative bg-gray-100">
           <a href="${BASE}berita/${p.slug}.html">
-            <img src="${BASE}${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <img src="${BASE}${p.image}" alt="${p.title}" class="w-full h-full object-cover transition duration-500">
           </a>
         </div>
         <div class="p-6">
@@ -438,11 +438,11 @@ function productCard(p) {
        data-images='${imagesJson}'
        data-watext="${waText}">
     <div>
-      <div class="h-32 sm:h-48 bg-gray-100 relative overflow-hidden product-image-box cursor-pointer" data-images='${imagesJson}'>
+      <div class="aspect-square bg-gray-100 relative overflow-hidden product-image-box cursor-pointer" data-images='${imagesJson}'>
         <span class="absolute top-2 left-2 z-10 max-w-[calc(100%-1rem)] truncate bg-brandBlack text-brandYellow text-[8px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded uppercase tracking-wider">${p.category}</span>
         ${jumlahVarian > 1 ? `<span class="absolute top-2 right-2 z-10 bg-brandYellow text-brandBlack text-[8px] sm:text-[10px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-1 rounded uppercase tracking-wider">${jumlahVarian} Ukuran</span>` : ""}
 
-        <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 main-img">
+        <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-contain transition-transform duration-500 main-img">
       </div>
 
       <div class="p-3 sm:p-4">
