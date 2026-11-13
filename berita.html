@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita & Tips Otomotif - Garasi Ban Indonesia</title>
+
+    <!-- Integrasi Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/tw-config.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #FFFFFF;
+            color: #111111;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- 1. NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- 2. HERO HEADER BERITA -->
+    <section class="py-12 bg-brandGray border-b border-gray-200/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brandBlack font-extrabold tracking-widest text-xs uppercase bg-brandYellow px-3 py-1.5 rounded shadow-sm">Kabar & Panduan Otomotif</span>
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-brandBlack mt-4 uppercase">BERITA & TIPS TERBARU</h1>
+            <p class="mt-2 text-gray-600 text-sm max-w-xl mx-auto">Dapatkan artikel terupdate mengenai perawatan ban, tips otomotif, panduan berkendara aman, dan seputar Garasi Ban Indonesia.</p>
+        </div>
+    </section>
+
+    <!-- 3. LIST GRID BERITA — di-render otomatis dari NEWS_POSTS (lihat js/data.js).
+         Tambah berita baru = tambah entri di NEWS_POSTS, tanpa mengubah file ini. -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
+        <div id="news-list" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
+        <!-- PAGINATION -->
+        <div class="mt-12">
+        </div>
+    </main>
+
+    <!-- 4. FOOTER -->
+    <div id="footer"></div>
+
+    <script>window.ACTIVE_PAGE = "Berita";</script>
+    <script src="js/data.js"></script>
+    <script src="js/js.js"></script>
+</body>
+</html>

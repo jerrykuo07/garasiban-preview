@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Garasi Ban Indonesia</title>
+
+    <!-- Integrasi Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+
+    <!-- Tailwind CSS & Font Awesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="js/tw-config.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+        body { font-family: 'Montserrat', sans-serif; background-color: #FFFFFF; color: #111111; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- 1. NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- 2. HERO HEADER HUBUNGI KAMI -->
+    <section class="bg-brandGray py-12 border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-brandBlack tracking-tight uppercase">HUBUNGI KAMI</h1>
+            <p class="mt-2 text-sm text-gray-500 max-w-xl mx-auto">
+                Punya pertanyaan seputar produk ban, ketersediaan stok ukuran, atau konsultasi layanan bengkel? Tim Garasi Ban siap membantu Anda.
+            </p>
+            <div class="w-12 h-1 bg-brandYellow mx-auto mt-4 rounded"></div>
+        </div>
+    </section>
+
+    <!-- 3. KONTEN HUBUNGI KAMI (FORM & INFO) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- KANAN / ASIDE: DETAIL INFORMASI KONTAK -->
+            <div class="space-y-6 lg:col-span-1">
+                <!-- Info Toko Card -->
+                <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-sm space-y-6">
+                    <h3 class="text-brandBlack font-extrabold text-base uppercase tracking-wider border-l-4 border-brandYellow pl-2.5">
+                        Info Operasional
+                    </h3>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start gap-3">
+                            <div class="text-brandYellow mt-0.5 text-base w-5 text-center"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brandBlack">Alamat Workshop</h4>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Garasi+Ban+Indonesia+Jl.+Otomotif+No.+88+Jakarta" target="_blank" rel="noopener" class="text-xs text-gray-500 mt-1 leading-relaxed hover:text-brandBlack transition inline-block">Jl. Otomotif No. 88, Jakarta, Indonesia</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="text-brandYellow mt-0.5 text-base w-5 text-center"><i class="fa-solid fa-phone"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brandBlack">Telepon / WhatsApp</h4>
+                                <a id="kontak-tel" class="inline-flex items-center min-h-[44px] text-sm text-gray-500 mt-1 hover:text-brandBlack transition">+62 851-1130-9169</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="text-brandYellow mt-0.5 text-base w-5 text-center"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brandBlack">Email Resmi</h4>
+                                <a href="mailto:info@garasiban.com" class="text-xs text-gray-500 mt-1 hover:text-brandBlack transition inline-block">info@garasiban.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="text-brandYellow mt-0.5 text-base w-5 text-center"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4 class="font-bold text-brandBlack">Jam Buka Bengkel</h4>
+                                <p class="text-xs text-gray-500 mt-1 leading-relaxed">
+                                    Senin - Sabtu: 08:00 - 17:00 WIB <br>
+                                    Minggu: 09:00 - 15:00 WIB
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KIRI: FORMULIR HUBUNGI KAMI -->
+            <div class="bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm lg:col-span-2">
+                <h3 class="text-brandBlack font-extrabold text-lg mb-6 flex items-center gap-2 border-b border-gray-100 pb-3">
+                    <i class="fa-solid fa-envelope-open-text text-brandYellow"></i> Kirim Pesan Online
+                </h3>
+
+                <form action="#" method="POST" class="space-y-5 text-sm" onsubmit="sendWhatsAppMessage(event)">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Subjek / Topik Pertanyaan</label>
+                        <select id="subjek" class="w-full bg-gray-50 border border-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:border-brandYellow font-semibold text-gray-700 text-base">
+                            <option>Tanya Stok Ukuran Produk</option>
+                            <option>Booking Layanan Pasang/Spooring/Balancing</option>
+                            <option>Keluhan / Klaim Garansi Resmi</option>
+                            <option>Kerja Sama Bisnis / Keagenan</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-2">Isi Pesan Pertanyaan</label>
+                        <textarea id="pesan" rows="4" required placeholder="Tuliskan detail pertanyaan Anda secara lengkap di sini..." class="w-full bg-gray-50 border border-gray-200 py-3 px-4 rounded-lg focus:outline-none focus:border-brandYellow font-semibold text-gray-700 text-base"></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full sm:w-auto bg-brandBlack hover:bg-gray-800 text-brandYellow font-extrabold py-3.5 px-8 rounded-lg transition uppercase tracking-wider text-xs flex items-center justify-center gap-2 shadow-md">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan Ke Garasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- 4. PETA LOKASI GOOGLE MAPS (PLACEHOLDER IFRAME) -->
+        <section class="mt-12 bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
+            <h3 class="text-brandBlack font-extrabold text-base uppercase tracking-wider border-l-4 border-brandYellow pl-2.5 mb-4">
+                Petunjuk Lokasi Workshop (Google Maps)
+            </h3>
+            <div class="w-full h-80 rounded-lg overflow-hidden bg-gray-100">
+                <!-- Sila ganti tag src di bawah dengan link share embed maps bengkel asli Anda nanti -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5768399581057!2d106.8821!3d-6.1873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTEnMTQuMyJTIDEwNlwwNDYnNTUuNiJF!5e0!3m2!1sid!2sid!4v1690000000000!5m2!1sid!2sid"
+                        class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+        // Form kontak diarahkan ke WhatsApp admin (mirip perilaku tombol WA di seluruh situs)
+        function sendWhatsAppMessage(e) {
+            e.preventDefault();
+            const subjek = document.getElementById('subjek').value;
+            const pesan = document.getElementById('pesan').value.trim();
+
+            // Nama & nomor pengirim otomatis terbaca dari akun WhatsApp — tidak perlu diisi ulang
+            let text = "Halo+Garasi+Ban%2C+saya+mengirim+pesan+dari+website%3A%0A";
+            text += "Topik%3A+" + encodeURIComponent(subjek).replace(/%20/g, "+") + "%0A";
+            text += "Pesan%3A+" + encodeURIComponent(pesan).replace(/%20/g, "+");
+
+            window.open("https://wa.me/" + WA_NUMBER + "?text=" + text, "_blank");
+        }
+    </script>
+    <script>window.ACTIVE_PAGE = "Kontak Kami";</script>
+    <script src="js/data.js"></script>
+    <script src="js/js.js"></script>
+</body>
+</html>

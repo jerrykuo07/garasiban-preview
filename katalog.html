@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Resmi - Garasi Ban Indonesia</title>
+
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="js/tw-config.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+        body { font-family: 'Montserrat', sans-serif; background-color: #FFFFFF; color: #111111; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+
+    <!-- 1. NAVBAR -->
+    <div id="navbar"></div>
+
+    <!-- 2. MAIN LAYOUT KATALOG -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+        <div id="katalog-app"><!-- Dirender oleh js/js.js --></div>
+    </div>
+
+    <!-- 3. MODAL POP-UP DESKRIPSI & DETAIL PRODUK -->
+    <div id="modal-detail" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar shadow-2xl border border-gray-100 flex flex-col justify-between">
+            <div class="p-6">
+                <!-- MODAL HEADER -->
+                <div class="flex items-start justify-between border-b border-gray-100 pb-4 mb-4">
+                    <div>
+                        <span id="modal-category" class="bg-brandBlack text-brandYellow text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">Category</span>
+                        <h3 id="modal-name" class="text-lg sm:text-xl font-extrabold text-brandBlack mt-1 leading-snug">Nama Produk</h3>
+                        <p id="modal-brand" class="text-xs font-bold text-gray-400 uppercase tracking-wider mt-0.5">Brand</p>
+                    </div>
+                    <button type="button" onclick="closeDetailModal()" class="text-gray-400 hover:text-brandBlack text-xl p-1 focus:outline-none">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- MODAL BODY -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- DISPLAY GAMBAR UTAMA MODAL -->
+                    <div>
+                        <div class="h-48 sm:h-56 bg-gray-100 rounded-xl overflow-hidden mb-2 border border-gray-100">
+                            <img id="modal-img-display" src="" alt="Preview" class="w-full h-full object-cover">
+                        </div>
+                        <div id="modal-thumbnails" class="flex gap-2 justify-center"></div>
+                    </div>
+
+                    <!-- SPESIFIKASI & HARGA -->
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <div class="mb-3">
+                                <span class="text-xs font-bold text-gray-400 uppercase block">Harga Resmi</span>
+                                <span id="modal-price" class="text-xl sm:text-2xl font-extrabold text-brandBlack">Rp 0</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2 text-xs bg-gray-50 p-3 rounded-lg border border-gray-100 mb-4">
+                                <div><span class="text-gray-400 font-semibold block">SKU:</span> <strong id="modal-sku" class="text-gray-800">-</strong></div>
+                                <div><span class="text-gray-400 font-semibold block">Varian:</span> <strong id="modal-variant" class="text-gray-800">-</strong></div>
+                                <div><span class="text-gray-400 font-semibold block">Berat:</span> <strong id="modal-weight" class="text-gray-800">-</strong></div>
+                            </div>
+
+                            <!-- Pilihan ukuran (muncul otomatis untuk produk multi-varian) -->
+                            <div id="modal-variant-box" class="text-xs mb-3"></div>
+                        </div>
+
+                        <!-- DESKRIPSI PRODUK -->
+                        <div>
+                            <span class="text-xs font-bold text-gray-400 uppercase block mb-1">Deskripsi Produk</span>
+                            <div id="modal-description" class="text-xs sm:text-sm text-gray-600 leading-relaxed max-h-32 overflow-y-auto custom-scrollbar pr-1">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODAL FOOTER -->
+            <div class="bg-gray-50 px-6 py-4 border-t border-gray-100 flex items-center justify-end gap-3 rounded-b-2xl">
+                <button type="button" onclick="closeDetailModal()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold rounded-lg text-xs transition">Tutup</button>
+                <a id="modal-wa-btn" href="#" target="_blank" class="px-5 py-2 bg-brandYellow hover:bg-yellow-400 text-brandBlack font-extrabold rounded-lg text-xs transition flex items-center gap-1.5 shadow">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> Tanya via WA
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. FOOTER -->
+    <div id="footer"></div>
+
+    <script>window.ACTIVE_PAGE = "Katalog";</script>
+    <script src="js/data.js"></script>
+    <script src="js/db-local.js"></script>
+    <script src="js/js.js"></script>
+</body>
+</html>
